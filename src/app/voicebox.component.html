@@ -1,0 +1,14 @@
+<form>
+  <fieldset
+    class="transcript"
+    [class.idle]="state === 'idle'"
+    [class.transcribing]="state === 'transcribing'"
+  >
+    <legend *ngIf="state === 'loading'">Loading ...</legend>
+    <legend *ngIf="state === 'error'">Error</legend>
+    <legend *ngIf="state === 'idle'">Idle (Say "Okay Google")</legend>
+    <legend *ngIf="state === 'transcribing'">Transcribing...</legend>
+    <p *ngIf="state === 'error'" class="error-message">{{errorMessage}}</p>
+    <pre class="transcript-output">{{ transcript }}</pre>
+  </fieldset>
+</form>
